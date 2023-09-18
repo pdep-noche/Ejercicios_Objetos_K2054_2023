@@ -1,0 +1,15 @@
+import pepita.*
+
+test "pepita vola" {
+	
+	pepita.vola(40)
+	assert.equals(pepita.energia(), 60)
+
+}
+
+
+test "pepita comer" {
+	pepita.comer(20)
+	
+	assert.equals(pepita.energia(), 140)
+}
