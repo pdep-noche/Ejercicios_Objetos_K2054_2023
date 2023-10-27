@@ -1,0 +1,27 @@
+import micros.*
+
+describe "group of tests" {
+	
+	const unMicro = new Micro(cantSentados = 5, cantParados = 10, volumen = 100)
+	const pasajero = new Claustrofobico()
+	const juan = new Apurado()
+	
+	test "test no puede subir al micro" {
+		assert.throwsException({unMicro.subirA(pasajero)})
+	}
+	
+	test "test no puede bajar del micro" {
+		assert.throwsException({unMicro.bajarA(pasajero)})
+	}
+	
+	test "test juan puede subir al micro" {
+		unMicro.subirA(juan)
+		assert.that(unMicro.estaPasajero(juan))		
+	}
+	
+	test "test juan bajar del micro" {
+		unMicro.subirA(juan)
+		unMicro.bajarA(juan)
+		assert.notThat(unMicro.estaPasajero(juan))	
+	}
+}
